@@ -38,8 +38,9 @@
 <h1>
 <a id="signals-basics" class="anchor" href="#signals-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Signals basics</h1>
 
-<p>(Signals images from: ironbark.xtelco.com.au)
-Signals are electromagnetic waves measured in Hz (cycles per second)</p>
+<p>(Signals images from: ironbark.xtelco.com.au)</p>
+
+<p>Signals are electromagnetic waves measured in Hz (cycles per second)</p>
 
 <p><img src="images/signals_basics1.png" alt=""> </p>
 
@@ -284,7 +285,7 @@ Signals are electromagnetic waves measured in Hz (cycles per second)</p>
 
 <p><strong>Hint: When using GNU Radio Companion if you cannot find the block you are looking for in the right-hand pane, click on the magnifying glass in the menu bar and this will enable you to do a text search</strong></p>
 
-<p><img src="images/top_block.png" alt=""></p>
+<p><img src="images/grc_top_block.png" alt=""></p>
 
 <p>The sample rate must be at least twice the maximum frequency (of the modulated data - not the carrier signal), but the higher the sample rate, the clearer the signal will be, which initially will help aid signal identification. The default is 32,000, but I would recommend at least 4,000,000 (4e6 is an easier way to write this, as you don't need to count the zeros!)</p>
 
@@ -331,7 +332,7 @@ Signals are electromagnetic waves measured in Hz (cycles per second)</p>
 
 <p>You are now ready to start the receiver - click on the gears icon in the menu bar and the flow-graph will start. The FFT sink displays 4MHz of bandwidth (your sample rate is 4 million and therefore the receiver is simultaneously sampling 4 million signals every second). The display is showing you everything that is being received in the frequency domain, so every peak is a different signal. If you were to tune through the FM broadcast band (87.5 – 108.0 MHz) each peak would be a different radio broadcast signal. FFT is <a href="http://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier Transform</a> - feel free to read all about it if you enjoy your maths! But understanding how it works is not required. Below is the output I saw when I started my receiver using the centre frequency 867.3MHz, which is in the <a href="http://en.wikipedia.org/wiki/ISM_band">ISM band</a> that's generally used for devices that form the Internet of Things:</p>
 
-<p><img src="images/grc_received_baseband.png%22" alt=""></p>
+<p><img src="images/grc_received_baseband.png" alt=""></p>
 
 <p>I have no idea what this signal is, but thought it would be a great opportunity to test out my methodology against, so the remainder of this receiver development example is based on this signal. Looking at the frequency, it is around 1Mhz higher than my centre frequency, so about 868.3MHz.</p>
 
