@@ -601,14 +601,14 @@
 
 <p>Follow the steps in the FSK receiver example up to the point of receiving the baseband signal. In our case the signal (from an Audi A4 keyfob) is at 433.920MHz:</p>
 
-<p><img src="Ask%20baseband.png" alt="" title="Ask baseband.png"></p>
+<p><img src="images/ask_baseband.png%22" alt=""></p>
 
 <h3>
 <a id="signal-visualization-and-identification" class="anchor" href="#signal-visualization-and-identification" aria-hidden="true"><span class="octicon octicon-link"></span></a>Signal visualization and identification</h3>
 
 <p>Open the file in Baudline (see FSK receiver for details of how to do this):</p>
 
-<p><img src="Ask%20baudline.png" alt="" title="Ask baudline.png"></p>
+<p><img src="images/ask_baudline.png%22" alt=""></p>
 
 <p>You can see at the beginning of the data burst (the preamble), the signal alternates between a large amplitude and zero down the screen (time axis). This clearly shows that the signal has been modulated using Amplitude Shift Keying (ASK), which is also known as On-Off Keying (OOK).</p>
 
@@ -629,7 +629,7 @@
 
 <p>Restart the flow-graph and you should see something like this:</p>
 
-<p><img src="Grc%20filtered%20signal.png" alt="" title="Grc filtered signal.png"></p>
+<p><img src="imagesgGrc_filtered_signal.png%22" alt=""></p>
 
 <h3>
 <a id="demodulating-1" class="anchor" href="#demodulating-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demodulating</h3>
@@ -658,7 +658,7 @@
 
 <p>Your flow-graph should now look like this:</p>
 
-<p><img src="Ask%20flow%20demod.png" alt="" title="Ask flow demod.png"></p>
+<p><img src="images/ask_flow_demod.png%22" alt=""></p>
 
 <p>Run the flow-graph and it will produce a file that hopefully will contain demodulated data.</p>
 
@@ -671,11 +671,11 @@
 
 <p>Start Baudline and load your demod file - use all the same parameters as before, but this time change "Channels" to 1 (it is no longer a complex baseband signal - it is a demodulated signal). Click "Open" and it should look something like this:</p>
 
-<p><img src="Ask%20demod2.png" alt="" title="Ask demod2.png"></p>
+<p><img src="images/ask_demod2.png%22" alt=""></p>
 
 <p>Ensure that the separate "Waveform" window is open (main menu -&gt; displays -&gt; waveform)</p>
 
-<p><img src="Ask%20demod1.png" alt="" title="Ask demod1.png"></p>
+<p><img src="images/ask_demod1.png%22" alt=""></p>
 
 <p>These are the data bits represented by the original complex baseband signal we saw in Baudline. It also confirms that the data was modulated using 2-ASK.</p>
 
@@ -684,7 +684,7 @@
 
 <p>If we look at the signal with respect to the scale, we can see that by choosing a peak, it's approximately 3.6 bits per millisecond, so it looks like 3600 Baud.</p>
 
-<p><img src="Ask%20demod3.png" alt="" title="Ask demod3.png"></p>
+<p><img src="images/ask_demod3.png%22" alt=""></p>
 
 <p>Ok, now we think we have the Baud rate, we can accurately add a new "Low Pass Filter" in between the "AM Demod" and the "File Sink". The settings should be as follows:</p>
 
@@ -708,13 +708,13 @@
 
 <p><strong>Note: When you load the file back into Baudline don't forget that the sample rate has been decimated by 100 and is now, therefore, 40,000 instead of 4,000,000</strong></p>
 
-<p><img src="Ask%20demod%20filtered.png" alt="" title="Ask demod filtered.png"></p>
+<p><img src="images/ask_demod_filtered.png%22" alt=""></p>
 
 <p>We're not quite ready to recover the bits yet though, as the signal should be alternating about 0dBm (the centre line in the waveform view. It's actually down towards -90dBm, so it needs to be increased.</p>
 
 <p>Add an "Add Const" block in between the second "Low Pass Filter" and the "File Sink" and set the "Constant" value to be 0.45 (this value was determined through trial-and-error), to increase the signal level. The output should now look like this:</p>
 
-<p><img src="Ask%20demod%20filtered2.png" alt="" title="Ask demod filtered2.png"></p>
+<p><img src="images/ask_demod_filtered2.png%22" alt=""></p>
 
 <h3>
 <a id="data-recovery-1" class="anchor" href="#data-recovery-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data recovery</h3>
@@ -751,11 +751,11 @@
 
 <p>Your final flow-graph should look something like this:</p>
 
-<p><img src="Ask%20full%20flowgraph.png" alt="" title="Ask full flowgraph.png"></p>
+<p><img src="images/ask_full_flowgraph.png" alt=""></p>
 
 <p>Open up the "bitfile" file in a hex editor. Remember the preamble of "0101010101..."? You need to search for the preamble in the "bitfile", but if you look carefully, you can see that each byte in the file represents one bit i.e a "0" bit is represented by the byte "00" and a "1" bit is represented by the byte "01", so to search for the preamble you need to search for: "0001000100010001". The result of the search is shown below, the rest of the data follows the preamble:</p>
 
-<p><img src="Ask%20hex%20output.png" alt="" title="Ask hex output.png"></p>
+<p><img src="images/ask_hex_output.png" alt=""></p>
 
 <p>You have now successfully retrieved the data from an ASK RF transmission!</p>
 
@@ -774,18 +774,18 @@
 
 <p>If you need to transmit signals on bands for which it would normally be illegal to do so e.g. Broadcast radio or 3G cellular then this can be performed within an RF-shielded environment. These come in all shapes and sizes, from small:</p>
 
-<p><img src="Rf%20enclosure.png" alt="" title="Rf enclosure.png"></p>
+<p><img src="images/rf_enclosure.png" alt=""></p>
 
 <p>to large:</p>
 
-<p><img src="Screened%20room.jpg" alt="" title="Screened room.jpg"></p>
+<p><img src="images/screened_room.jpg" alt=""></p>
 
 <h2>
 <a id="direct-connection-using-attenuators" class="anchor" href="#direct-connection-using-attenuators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Direct connection using attenuators</h2>
 
 <p>Another approach is to directly connect your transmitter to your receiver via a cable so that no radio waves are transmitted. However, in order to do this without damaging the receiver you need to use in-line attenuators (see below) to reduce the signal level, as would occur if it was transmitted via an antenna</p>
 
-<p><img src="Attenuator.jpg" alt="" title="Attenuator.jpg"></p>
+<p><img src="images/attenuator.jpg" alt=""></p>
 
 <h2>
 <a id="developing-a-digital-fsk-transmitter-step-by-step" class="anchor" href="#developing-a-digital-fsk-transmitter-step-by-step" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developing a digital (FSK) transmitter step-by-step</h2>
@@ -799,7 +799,7 @@
 
 <p>Create a new flow-graph and set the "samp_rate_tx" variable to 4e6</p>
 
-<p><img src="Tx%20samp%20rate.png" alt="" title="Tx samp rate.png"></p>
+<p><img src="images/tx_samp_rate.png" alt=""></p>
 
 <p>Add a "File Source" block and set the file to be your data file. Ensure that "Repeat" is set to "No" (unless you specifically want it to repeat)</p>
 
@@ -808,14 +808,14 @@
 
 <p>Having received the data, you should already know what the Baud rate should be set to. Add a new "Variable" block called "baud_rate" and set it to the correct value.</p>
 
-<p><img src="Tx%20baud%20rate.png" alt="" title="Tx baud rate.png"></p>
+<p><img src="images/tx_baud_rate.png" alt=""></p>
 
 <h3>
 <a id="modulation" class="anchor" href="#modulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modulation</h3>
 
 <p>Add a new "Variable" called "sps" (samples per symbol) and set it's value to be 10</p>
 
-<p><img src="Tx%20sps.png" alt="" title="Tx sps.png"></p>
+<p><img src="images/tx_sps.png" alt=""></p>
 
 <p>Change the default "samp_rate" "Variable" block to 384000 (10 x Baud rate, as we want 10 samples per symbol)</p>
 
@@ -837,11 +837,11 @@
 <li>  "BT": 1 (this will effectively remove the Gaussian filter and make it FSK rather than GFSK)</li>
 </ul>
 
-<p><img src="Tx%20gfsk%20mod.png" alt="" title="Tx gfsk mod.png"></p>
+<p><img src="images/tx_gfsk_mod.png" alt=""></p>
 
 <p>Your flow-graph should now look like this:</p>
 
-<p><img src="Tx%20source%20and%20mod.png" alt="" title="Tx source and mod.png"></p>
+<p><img src="images/tx_source_and_mod.png" alt=""></p>
 
 <h3>
 <a id="resampling" class="anchor" href="#resampling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resampling</h3>
@@ -860,7 +860,7 @@
 <li>  "Decimation": samp_rate (the input sample rate)</li>
 </ul>
 
-<p><img src="Tx%20resampler.png" alt="" title="Tx resampler.png"></p>
+<p><img src="images/tx_resampler.png" alt=""></p>
 
 <h3>
 <a id="adjust-the-signal-level" class="anchor" href="#adjust-the-signal-level" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust the signal level</h3>
@@ -869,7 +869,7 @@
 
 <p>Add a "Multiply Const" block and set "Constant" to be 0.8</p>
 
-<p><img src="Tx%20const.png" alt="" title="Tx const.png"></p>
+<p><img src="images/tx_const.png" alt=""></p>
 
 <h3>
 <a id="configure-the-transmitter" class="anchor" href="#configure-the-transmitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure the transmitter</h3>
@@ -878,7 +878,7 @@
 
 <p>Add a "Variable" block with the name "freq" and value equal to the transmit frequency:</p>
 
-<p><img src="Tx%20freq.png" alt="" title="Tx freq.png"></p>
+<p><img src="images/tx_freq.png" alt=""></p>
 
 <p>Add an "osmocom Sink" block with the following settings:</p>
 
@@ -904,11 +904,11 @@
 <li>  "Ch0: BB Gain (dB)": 20 (can be changed as required)</li>
 </ul>
 
-<p><img src="Tx%20tx.png" alt="" title="Tx tx.png"></p>
+<p><img src="images/tx_tx.png%22" alt=""></p>
 
 <p>The complete transmitter flow-graph should now look like this:</p>
 
-<p><img src="Iohome%20tx%20crop.png" alt="" title="Iohome tx crop.png"></p>
+<p><img src="images/iohome_tx_crop.png%22" alt=""></p>
 
 <h3>
 <a id="communicating-with-the-transmitter-in-real-time" class="anchor" href="#communicating-with-the-transmitter-in-real-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Communicating with the transmitter in real-time</h3>
@@ -927,14 +927,14 @@
 
 <p>The below example is the most simple form of ASK, known as On-Off Keying (OOK):</p>
 
-<p><img src="ask_baudline.png" alt="" title=" ask_baudline.png"></p>
+<p><img src="images/ask_baudline.png" alt=""></p>
 
 <h2>
 <a id="frequency-shift-keying-fsk" class="anchor" href="#frequency-shift-keying-fsk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frequency Shift Keying (FSK)</h2>
 
 <p>The below example is the most simple form of FSK, known as 2-FSK or Binary FSK:</p>
 
-<p><img src="Fsk%20baudline.png" alt="" title="Fsk baudline.png"></p>
+<p><img src="images/fsk_baudline.png" alt=""></p>
 
 <p>TODO - add more stuff here</p>
 
