@@ -150,7 +150,7 @@
 <h2>
 <a id="product-data-sheets" class="anchor" href="#product-data-sheets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Product data sheets</h2>
 
-<p>Data sheets can provide a wealth of useful information - below is an example of a datasheet for the transceiver chip within an io-homecontrol device: <img src="images/Iohome%20datasheet.png" alt=""></p>
+<p>Data sheets can provide a wealth of useful information - below is an example of a datasheet for the transceiver chip within an io-homecontrol device: <img src="images/iohome%20datasheet.png" alt=""></p>
 
 <p>As can be seen in the example above, there are a number of very useful pieces of information:</p>
 
@@ -245,7 +245,7 @@
 
 <p>RP-SMA - These are often used on WiFi routers - do not confuse with SMA, as <strong>they are not compatible with SMA!</strong></p>
 
-<p><img src="images/rp-sma_female.jpg" alt=""><img src="images/r-sma_male.jpg" alt=""></p>
+<p><img src="images/rp-sma_female.jpg" alt=""><img src="images/rp-sma_male.jpg" alt=""></p>
 
 <p>MCX - These are used on the RTL-SDR and some older WiFi PC cards</p>
 
@@ -353,7 +353,7 @@
 
 <p>Start up Baudline:</p>
 
-<p><img src="images/Baudline_default.png" alt=""></p>
+<p><img src="images/baudline_default.png" alt=""></p>
 
 <p>Right-click to open the main menu -&gt; input -&gt; open file. Make sure you select your "partx" file rather than "4M_received_baseband".</p>
 
@@ -387,7 +387,7 @@
 
 <p>The file will be displayed graphically with time vertically and frequencies displayed horizontally.</p>
 
-<p><img src="images/baudline_signal.png%22" alt=""></p>
+<p><img src="images/baudline_signal.png" alt=""></p>
 
 <p>You may need to play with the colours to make the signal clearer (main menu -&gt; input -&gt; colour aperture)</p>
 
@@ -409,15 +409,15 @@
 
 <p>Add a "Signal Source" block with the Frequency set to "-950e3" (I said the signal looked like it was about 1MHz higher than the centre - it was actually 950KHz)</p>
 
-<p><img src="images/grc_signal_source.png%22" alt=""></p>
+<p><img src="images/grc_signal_source.png" alt=""></p>
 
 <p>Add a "Multiply" block and connect the "Throttle" output and "Signal Source" output to the two "Multiply" inputs. Add the "Multiply" output to the "WX GUI FFT Sink" and your flow-graph should look like this:</p>
 
-<p><img src="images/grc_multiply.png%22" alt=""></p>
+<p><img src="images/grc_multiply.png" alt=""></p>
 
 <p>Start the flow-graph and the signal will now be centred:</p>
 
-<p><img src="images/grc_fft_centred.png%22" alt=""></p>
+<p><img src="images/grc_fft_centred.png" alt=""></p>
 
 <h3>
 <a id="filtering" class="anchor" href="#filtering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtering</h3>
@@ -436,7 +436,7 @@
 
 <p>Restart the flow-graph and you should see something like this:</p>
 
-<p><img src="images/grc_filtered_signal.png%22" alt=""></p>
+<p><img src="images/grc_filtered_signal.png" alt=""></p>
 
 <h3>
 <a id="demodulating" class="anchor" href="#demodulating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demodulating</h3>
@@ -480,7 +480,7 @@
 
 <p>By scrolling out horizontally, you should see lots of noise and then a section of no noise - this is your signal:</p>
 
-<p><img src="images/baudline_waveform2.png%22" alt=""></p>
+<p><img src="images/baudline_waveform2.png" alt=""></p>
 
 <p>Unfortunately, when you try and zoom in, the data is almost unrecognizable, because of the level of noise affecting it. If this is the case it means that you need to reduce the "Cutoff Freq" and "Transition Width" of your "Low Pass Filter". After some experimentation, some reasonable values were chosen:</p>
 
@@ -582,7 +582,7 @@
 
 <p>Open up the "bitfile" file in a hex editor. Remember the preamble of "0101010101..."? If you count them, there are four bytes worth (32bits) so you need to search for the preamble in the "bitfile", but if you look carefully, you can see that each byte in the file represents one bit i.e a "0" bit is represented by the byte "00" and a "1" bit is represented by the byte "01", so to search for the preamble you need to search for: "0001000100010001000100010001000100010001000100010001000100010001". The result of the search is shown below, the rest of the data follows the preamble:</p>
 
-<p><img src="images/hex_editor_bits.png%22" alt=""></p>
+<p><img src="images/hex_editor_bits.png" alt=""></p>
 
 <p>You have now successfully retrieved the data from an RF transmission!</p>
 
@@ -601,14 +601,14 @@
 
 <p>Follow the steps in the FSK receiver example up to the point of receiving the baseband signal. In our case the signal (from an Audi A4 keyfob) is at 433.920MHz:</p>
 
-<p><img src="images/ask_baseband.png%22" alt=""></p>
+<p><img src="images/ask_baseband.png" alt=""></p>
 
 <h3>
 <a id="signal-visualization-and-identification" class="anchor" href="#signal-visualization-and-identification" aria-hidden="true"><span class="octicon octicon-link"></span></a>Signal visualization and identification</h3>
 
 <p>Open the file in Baudline (see FSK receiver for details of how to do this):</p>
 
-<p><img src="images/ask_baudline.png%22" alt=""></p>
+<p><img src="images/ask_baudline.png" alt=""></p>
 
 <p>You can see at the beginning of the data burst (the preamble), the signal alternates between a large amplitude and zero down the screen (time axis). This clearly shows that the signal has been modulated using Amplitude Shift Keying (ASK), which is also known as On-Off Keying (OOK).</p>
 
@@ -629,7 +629,7 @@
 
 <p>Restart the flow-graph and you should see something like this:</p>
 
-<p><img src="imagesgGrc_filtered_signal.png%22" alt=""></p>
+<p><img src="images/grc_filtered_signal.png" alt=""></p>
 
 <h3>
 <a id="demodulating-1" class="anchor" href="#demodulating-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demodulating</h3>
@@ -658,7 +658,7 @@
 
 <p>Your flow-graph should now look like this:</p>
 
-<p><img src="images/ask_flow_demod.png%22" alt=""></p>
+<p><img src="images/ask_flow_demod.png" alt=""></p>
 
 <p>Run the flow-graph and it will produce a file that hopefully will contain demodulated data.</p>
 
@@ -671,11 +671,11 @@
 
 <p>Start Baudline and load your demod file - use all the same parameters as before, but this time change "Channels" to 1 (it is no longer a complex baseband signal - it is a demodulated signal). Click "Open" and it should look something like this:</p>
 
-<p><img src="images/ask_demod2.png%22" alt=""></p>
+<p><img src="images/ask_demod2.png" alt=""></p>
 
 <p>Ensure that the separate "Waveform" window is open (main menu -&gt; displays -&gt; waveform)</p>
 
-<p><img src="images/ask_demod1.png%22" alt=""></p>
+<p><img src="images/ask_demod1.png" alt=""></p>
 
 <p>These are the data bits represented by the original complex baseband signal we saw in Baudline. It also confirms that the data was modulated using 2-ASK.</p>
 
@@ -684,7 +684,7 @@
 
 <p>If we look at the signal with respect to the scale, we can see that by choosing a peak, it's approximately 3.6 bits per millisecond, so it looks like 3600 Baud.</p>
 
-<p><img src="images/ask_demod3.png%22" alt=""></p>
+<p><img src="images/ask_demod3.png" alt=""></p>
 
 <p>Ok, now we think we have the Baud rate, we can accurately add a new "Low Pass Filter" in between the "AM Demod" and the "File Sink". The settings should be as follows:</p>
 
@@ -708,13 +708,13 @@
 
 <p><strong>Note: When you load the file back into Baudline don't forget that the sample rate has been decimated by 100 and is now, therefore, 40,000 instead of 4,000,000</strong></p>
 
-<p><img src="images/ask_demod_filtered.png%22" alt=""></p>
+<p><img src="images/ask_demod_filtered.png" alt=""></p>
 
 <p>We're not quite ready to recover the bits yet though, as the signal should be alternating about 0dBm (the centre line in the waveform view. It's actually down towards -90dBm, so it needs to be increased.</p>
 
 <p>Add an "Add Const" block in between the second "Low Pass Filter" and the "File Sink" and set the "Constant" value to be 0.45 (this value was determined through trial-and-error), to increase the signal level. The output should now look like this:</p>
 
-<p><img src="images/ask_demod_filtered2.png%22" alt=""></p>
+<p><img src="images/ask_demod_filtered2.png" alt=""></p>
 
 <h3>
 <a id="data-recovery-1" class="anchor" href="#data-recovery-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data recovery</h3>
