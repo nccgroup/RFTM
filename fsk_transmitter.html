@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="RFTM : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>RFTM</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/nccgroup/RFTM">View on GitHub</a>
+
+          <h1 id="project_title">RFTM</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/nccgroup/RFTM/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/nccgroup/RFTM/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+
+<h2>
+<a id="developing-a-digital-fsk-transmitter-step-by-step" class="anchor" href="#developing-a-digital-fsk-transmitter-step-by-step" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developing an FSK transmitter step-by-step</h2>
+
+<p>If you have captured some data from a target system using a receiver and you now wish to modify that data and re-transmit it (for example if you are developing an RF-based fuzzer) the following process can be followed. This transmitter is assumed to use FSK modulation (this example is actually a transmitter developed for the <a href="https://wiki.pentest.ngs/index.php/Io-homecontrol">io-homecontrol protocol</a>)</p>
+
+<h3>
+<a id="data-source" class="anchor" href="#data-source" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data source</h3>
+
+<p>The assumption is that you start with a data file containing the binary data bytes you want to send</p>
+
+<p>Create a new flow-graph and set the "samp_rate_tx" variable to 4e6</p>
+
+<p><img src="images/tx_samp_rate.png" alt=""></p>
+
+<p>Add a "File Source" block and set the file to be your data file. Ensure that "Repeat" is set to "No" (unless you specifically want it to repeat)</p>
+
+<h3>
+<a id="set-the-baud-rate" class="anchor" href="#set-the-baud-rate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Set the Baud rate</h3>
+
+<p>Having received the data, you should already know what the Baud rate should be set to. Add a new "Variable" block called "baud_rate" and set it to the correct value.</p>
+
+<p><img src="images/tx_baud_rate.png" alt=""></p>
+
+<h3>
+<a id="modulation" class="anchor" href="#modulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modulation</h3>
+
+<p>Add a new "Variable" called "sps" (samples per symbol) and set it's value to be 10</p>
+
+<p><img src="images/tx_sps.png" alt=""></p>
+
+<p>Change the default "samp_rate" "Variable" block to 384000 (10 x Baud rate, as we want 10 samples per symbol)</p>
+
+<p>Add a "GFSK Mod" block, which will modulate the data using FSK. Configure the following settings:</p>
+
+<ul>
+<li>  "Samples/Symbol": sps</li>
+</ul>
+
+
+
+<ul>
+<li>  "Sensitivity": 1</li>
+</ul>
+
+
+
+<ul>
+<li>  "BT": 1 (this will effectively remove the Gaussian filter and make it FSK rather than GFSK)</li>
+</ul>
+
+<p><img src="images/tx_gfsk_mod.png" alt=""></p>
+
+<p>Your flow-graph should now look like this:</p>
+
+<p><img src="images/tx_source_and_mod.png" alt=""></p>
+
+<h3>
+<a id="resampling" class="anchor" href="#resampling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Resampling</h3>
+
+<p>We now need to match the sample rate of the data with the transmitter (as it is the final sample rate of the transmitter that will actually determine the rate that the data is transmitted).</p>
+
+<p>Add a "Rational Resampler" block with the following settings:</p>
+
+<ul>
+<li>  "Interpolation": samp_rate_tx (the output sample rate)</li>
+</ul>
+
+
+
+<ul>
+<li>  "Decimation": samp_rate (the input sample rate)</li>
+</ul>
+
+<p><img src="images/tx_resampler.png" alt=""></p>
+
+<h3>
+<a id="adjust-the-signal-level" class="anchor" href="#adjust-the-signal-level" aria-hidden="true"><span class="octicon octicon-link"></span></a>Adjust the signal level</h3>
+
+<p>We don't want to overload the input to the transmitter so we need to attenuate (reduce) the signal level.</p>
+
+<p>Add a "Multiply Const" block and set "Constant" to be 0.8</p>
+
+<p><img src="images/tx_const.png" alt=""></p>
+
+<h3>
+<a id="configure-the-transmitter" class="anchor" href="#configure-the-transmitter" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure the transmitter</h3>
+
+<p>We are now ready to transmit the signal.</p>
+
+<p>Add a "Variable" block with the name "freq" and value equal to the transmit frequency:</p>
+
+<p><img src="images/tx_freq.png" alt=""></p>
+
+<p>Add an "osmocom Sink" block with the following settings:</p>
+
+<ul>
+<li>  "Ch0: Frequency": freq</li>
+</ul>
+
+
+
+<ul>
+<li>  "Ch0: RF Gain (dB)": 30 (can be changed as required)</li>
+</ul>
+
+
+
+<ul>
+<li>  "Ch0: IF Gain (dB)": 20 (can be changed as required)</li>
+</ul>
+
+
+
+<ul>
+<li>  "Ch0: BB Gain (dB)": 20 (can be changed as required)</li>
+</ul>
+
+<p><img src="images/tx_tx.png" alt=""></p>
+
+<p>The complete transmitter flow-graph should now look like this:</p>
+
+<p><img src="images/iohome_tx_crop.png" alt=""></p>
+
+<h3>
+<a id="communicating-with-the-transmitter-in-real-time" class="anchor" href="#communicating-with-the-transmitter-in-real-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Communicating with the transmitter in real-time</h3>
+
+<p>Rather than using a file as a source you can use a "TCP Sink" block, bind it to a socket and send it data via TCP</p>
+
+
+
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">RFTM maintained by <a href="https://github.com/nccgroup">nccgroup</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
