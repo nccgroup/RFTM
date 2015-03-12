@@ -1,36 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="RFTM : ">
+    <title>RFTM by nccgroup</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>RFTM</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/nccgroup/RFTM">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/nccgroup/RFTM/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/nccgroup/RFTM/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/nccgroup/RFTM">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">RFTM</h1>
-          <h2 id="project_tagline"></h2>
+      <section>
+        <div id="title">
+          <h1>RFTM</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/nccgroup">nccgroup</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/nccgroup/RFTM/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/nccgroup/RFTM/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
         <p>The RFTM is an Open Source, collaborative testing methodology that can be applied to all Radio Frequency (wireless) technologies. </p>
 
 <p>Throughout this methodology, we'll use various real-world examples, including the <a href="http://www.io-homecontrol.com/en/">Io-homecontrol</a> protocol.</p>
@@ -38,11 +45,17 @@
 <h1>
 <a id="signals-basics" class="anchor" href="#signals-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Signals basics</h1>
 
-<p><img src="images/signals_basics1.png" alt=""> Signals are electromagnetic waves measured in Hz (cycles per second)</p>
+<p>Signals are electromagnetic waves measured in Hz (cycles per second)</p>
 
-<p><img src="images/signals_basics2.png" alt=""> To transmit useful information we need to “modulate” a carrier signal with the information</p>
+<p><img src="images/signals_basics1.png" alt=""> </p>
 
-<p><img src="images/signals_basics3.png" alt=""> Frequency Modulation changes the frequency of the carrier proportionally to the information you wish to transmit</p>
+<p>To transmit useful information we need to “modulate” a carrier signal with the information</p>
+
+<p><img src="images/signals_basics2.png" alt=""> </p>
+
+<p>Frequency Modulation changes the frequency of the carrier proportionally to the information you wish to transmit</p>
+
+<p><img src="images/signals_basics3.png" alt=""> </p>
 
 <h1>
 <a id="modulation-schemes" class="anchor" href="#modulation-schemes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modulation schemes</h1>
@@ -54,7 +67,7 @@
 
 <p>FSK</p>
 
-<p><img src="FSK.png" alt="" title="FSK.png"></p>
+<p><img src="images/FSK.png" alt=""></p>
 
 <h2>
 <a id="amplitude-modulation" class="anchor" href="#amplitude-modulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amplitude modulation</h2>
@@ -63,13 +76,13 @@
 
 <p>AM</p>
 
-<p><img src="AM.jpg" alt="" title="AM.jpg"></p>
+<p><img src="images/AM.jpg" alt=""></p>
 
 <p>The digital equivalent of AM is ASK</p>
 
 <p>ASK</p>
 
-<p><img src="ASK.png" alt="" title="ASK.png"></p>
+<p><img src="images/ASK.png" alt=""></p>
 
 <h2>
 <a id="phase-modulation" class="anchor" href="#phase-modulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Phase modulation</h2>
@@ -78,13 +91,13 @@
 
 <p>PM</p>
 
-<p><img src="PM.jpg" alt="" title="PM.jpg"></p>
+<p><img src="images/PM.jpg" alt=""></p>
 
 <p>The digital equivalent of PM is PSK</p>
 
 <p>PSK</p>
 
-<p><img src="PSK.png" alt="" title="PSK.png"></p>
+<p><img src="images/PSK.png" alt=""></p>
 
 <h2>
 <a id="more-complex-modulation-schemes" class="anchor" href="#more-complex-modulation-schemes" aria-hidden="true"><span class="octicon octicon-link"></span></a>More complex modulation schemes</h2>
@@ -93,7 +106,7 @@
 
 <p>In previous examples there have only been two symbols (one representing a "0" and the other representing a "1"). To increase the data rate, multiple symbols are created at different amplitudes and phases e.g with 16QAM. Below is a phase diagram with the phase angle represented as the 360 degrees around the origin (centre of the diagram) and the amplitude represented as the vector distance from the origin. Each symbol can now represent four bits:</p>
 
-<p><img src="16QAM.png" alt="" title="16QAM.png"></p>
+<p><img src="images/16QAM.png" alt=""></p>
 
 <p>TODO: Add much more about modulation here</p>
 
@@ -943,17 +956,9 @@
 <h2>
 <a id="simple-fm-radio-receiver" class="anchor" href="#simple-fm-radio-receiver" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple FM radio receiver</h2>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">RFTM maintained by <a href="https://github.com/nccgroup">nccgroup</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
   </body>
 </html>
