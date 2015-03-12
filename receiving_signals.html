@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="RFTM : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>RFTM</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/nccgroup/RFTM">View on GitHub</a>
+
+          <h1 id="project_title">RFTM</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/nccgroup/RFTM/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/nccgroup/RFTM/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+
+<h1>
+<a id="receiving-signals" class="anchor" href="#receiving-signals" aria-hidden="true"><span class="octicon octicon-link"></span></a>Receiving signals</h1>
+
+<p>Historically, in order to receive RF signals you would require expensive hardware, which may only work for a small range of frequencies. With the popularization of Software Defined Radio, cheap, configurable radio solutions can now easily be developed.</p>
+
+<h2>
+<a id="hardware-software-defined-radio" class="anchor" href="#hardware-software-defined-radio" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware: Software Defined Radio</h2>
+
+<p>In order to receive and signals you'll need an SDR:</p>
+
+<ul>
+<li>  HackRF One</li>
+</ul>
+
+
+
+<ul>
+<li>  BladeRF</li>
+</ul>
+
+
+
+<ul>
+<li>  RTL-SDR</li>
+</ul>
+
+
+
+<ul>
+<li>  FUNcube Pro+</li>
+</ul>
+
+<h2>
+<a id="hardware-antennas" class="anchor" href="#hardware-antennas" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware: Antennas</h2>
+
+<p>Antennas are generally designed to work within specific frequency bands, as their size generally relates to the wavelength of signals and hence determines the frequencies at which they can operate (as a general rule, the larger the antenna, the lower the frequency band on which it operates as <a href="http://en.wikipedia.org/wiki/Wavelength#Sinusoidal_waves">wavelength is inversely proportional to frequency</a>).</p>
+
+<p>Below are a few examples of antenna types (there are many available!):</p>
+
+<p>Omni-directional, limited to narrow frequency band - this is the type you are most likely to use with your SDR:</p>
+
+<p><img src="images/omni_antenna.png" alt=""></p>
+
+<p>Omni-directional, wideband antenna - for covering a much larger range of frequencies when scanning a wide RF environment:</p>
+
+<p><img src="images/wideband_antenna.png" alt=""></p>
+
+<p>Directional "Yagi" antenna - for focusing the beam in a very specific direction (used for terrestrial TV reception):</p>
+
+<p><img src="images/433_yagi.png" alt=""></p>
+
+<p>TODO: Add some antenna theory here to explain how they work</p>
+
+<h2>
+<a id="hardware-connectors" class="anchor" href="#hardware-connectors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware: Connectors</h2>
+
+<p>Below are some of the most common connectors you will encounter in the world of RF: (a more exhaustive list is available <a href="http://telcoantennas.com.au/site/guide-antenna-cables-connectors">here</a>)</p>
+
+<p>SMA - This is the most common connector you will encounter when using SDR (good for up to 18GHz)</p>
+
+<p><img src="images/sma_female.jpg" alt=""><img src="images/sma_male.jpg" alt=""></p>
+
+<p>RP-SMA - These are often used on WiFi routers - do not confuse with SMA, as <strong>they are not compatible with SMA!</strong></p>
+
+<p><img src="images/rp-sma_female.jpg" alt=""><img src="images/rp-sma_male.jpg" alt=""></p>
+
+<p>MCX - These are used on the RTL-SDR and some older WiFi PC cards</p>
+
+<p><img src="images/mcx_female2.jpg" alt=""><img src="images/mcx_male.jpg" alt=""></p>
+
+<p>BNC - Often used for lower frequency antennas (only good for up to 4GHz)</p>
+
+<p><img src="images/bnc-female.jpg" alt=""><img src="images/bnc-male.jpg" alt=""></p>
+
+<p>N-type - used for more industrial purposes e.g. radar, mobile base stations</p>
+
+<p><img src="images/n-type_female.jpg" alt=""><img src="images/n-type_male.jpg" alt=""></p>
+
+<h2>
+<a id="hardware-amplifiers" class="anchor" href="#hardware-amplifiers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware: Amplifiers</h2>
+
+<p>Sometimes the signal you are trying to receive is very low level and therefore, an amplifier is required. Below is an example of a typical <a href="http://en.wikipedia.org/wiki/Low-noise_amplifier">Low Noise Amplifier</a> that has been successfully used with an SDR:</p>
+
+<p><img src="images/low_noise_amp2.png" alt=""></p>
+
+<p>TODO: Add more info about amplifiers and explain Signal to Noise ratio</p>
+
+<h2>
+<a id="software-gnu-radio" class="anchor" href="#software-gnu-radio" aria-hidden="true"><span class="octicon octicon-link"></span></a>Software: GNU Radio</h2>
+
+<p><a href="http://gnuradio.org/redmine/projects/gnuradio/wiki">GNU Radio</a> is a free and open-source software development toolkit that provides signal processing blocks to implement software radios. It can be used with readily-available low-cost external RF hardware to create software-defined radios, or without hardware in a simulation-like environment. It is widely used in hobbyist, academic and commercial environments to support both wireless communications research and real-world radio systems.</p>
+
+<p>The <a href="http://gnuradio.org/redmine/projects/gnuradio/wiki/GNURadioLiveDVD">GNU Radio Live DVD</a> can be downloaded here (it supports all the major SDRs)</p>
+
+
+
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">RFTM maintained by <a href="https://github.com/nccgroup">nccgroup</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
