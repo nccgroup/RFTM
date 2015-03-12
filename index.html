@@ -36,6 +36,76 @@
 <p>Throughout this methodology, we'll use various real-world examples, including the <a href="http://www.io-homecontrol.com/en/">Io-homecontrol</a> protocol.</p>
 
 <h1>
+<a id="signals-basics" class="anchor" href="#signals-basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Signals basics</h1>
+
+<p>(Signals images from: ironbark.xtelco.com.au)</p>
+
+<p>Signals are electromagnetic waves measured in Hz (cycles per second)</p>
+
+<p><img src="images/signals_basics1.png" alt=""> </p>
+
+<p>To transmit useful information we need to “modulate” a carrier signal with the information</p>
+
+<p><img src="images/signals_basics2.png" alt=""> </p>
+
+<p>Frequency Modulation changes the frequency of the carrier proportionally to the information you wish to transmit</p>
+
+<p><img src="images/signals_basics3.png" alt=""> </p>
+
+<h1>
+<a id="modulation-schemes" class="anchor" href="#modulation-schemes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Modulation schemes</h1>
+
+<h2>
+<a id="frequency-modulation" class="anchor" href="#frequency-modulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frequency modulation</h2>
+
+<p>An example of a varying input signal modulating a carrier wave by proportionally changing it's frequency is shown above. If digital information needs to be modulated then FSK is used:</p>
+
+<p>FSK</p>
+
+<p><img src="images/FSK.png" alt=""></p>
+
+<h2>
+<a id="amplitude-modulation" class="anchor" href="#amplitude-modulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Amplitude modulation</h2>
+
+<p>Another modulation scheme is Amplitude Modulation, where the amplitude (or volume) of the carrier is modified proportionally to the signal. One disadvantage of AM is that the receiver amplifies and detects noise and electromagnetic interference in equal proportion to the signal, which is why AM radio signals are not as clear as FM radio signals.</p>
+
+<p>AM</p>
+
+<p><img src="images/AM.jpg" alt=""></p>
+
+<p>The digital equivalent of AM is ASK</p>
+
+<p>ASK</p>
+
+<p><img src="images/ASK.png" alt=""></p>
+
+<h2>
+<a id="phase-modulation" class="anchor" href="#phase-modulation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Phase modulation</h2>
+
+<p>The third major modulation scheme is Phase Modulation where the phase of the carrier is modified proportionally by the input signal. PM looks very similar to FM, but it's much clearer what is going on when you look at the PSK signal below.</p>
+
+<p>PM</p>
+
+<p><img src="images/PM.jpg" alt=""></p>
+
+<p>The digital equivalent of PM is PSK</p>
+
+<p>PSK</p>
+
+<p><img src="images/PSK.png" alt=""></p>
+
+<h2>
+<a id="more-complex-modulation-schemes" class="anchor" href="#more-complex-modulation-schemes" aria-hidden="true"><span class="octicon octicon-link"></span></a>More complex modulation schemes</h2>
+
+<p>In order to smooth the transitions in digital modulation there are "Gaussian" variants e.g. GFSK (Gaussian Frequency Shift Keying). This reduces the bandwidth of the signal channel by applying a <a href="http://en.wikipedia.org/wiki/Gaussian_filter">Gaussian filter</a> prior to modulation.</p>
+
+<p>In previous examples there have only been two symbols (one representing a "0" and the other representing a "1"). To increase the data rate, multiple symbols are created at different amplitudes and phases e.g with 16QAM. Below is a phase diagram with the phase angle represented as the 360 degrees around the origin (centre of the diagram) and the amplitude represented as the vector distance from the origin. Each symbol can now represent four bits:</p>
+
+<p><img src="images/16QAM.png" alt=""></p>
+
+<p>TODO: Add much more about modulation here</p>
+
+<h1>
 <a id="information-sources" class="anchor" href="#information-sources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Information sources</h1>
 
 <p>Before you can receive any signals from your target system you'll need various important pieces of information.</p>
