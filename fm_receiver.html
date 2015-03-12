@@ -37,21 +37,28 @@
 <p><img src="images/fm_flowgraph_new.png"></p>
 
 
-<h3><span class="mw-headline" id="Configure_the_GNU_Radio_environment">Configure the GNU Radio environment</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FM_receiver&amp;action=edit&amp;section=2" title="Edit section: Configure the GNU Radio environment">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3>Configure the GNU Radio environment</h3>
+
 <p>When you first start GNU Radio Companion, you are presented with an "Options" block and a "Variable" block. 
 </p><p><b>Hint: When using GNU Radio Companion if you cannot find the block you are looking for in the right-hand pane, click on the magnifying glass in the menu bar and this will enable you to do a text search</b>
 </p><p>The "Options" block allows you to enter parameters such as the Title, Author, Description and also allows you to decide if the GUI elements will use the WX or QT environments (WX is the default).
-</p><p><a href="/index.php/File:Fm_top_block.png" class="image"><img alt="Fm top block.png" src="/images/5/50/Fm_top_block.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_top_block.png"></p>
 </p><p><br />
 In the "Variable" block set the sample rate to be 2e6 (2,000,000)
-</p><p><a href="/index.php/File:Fm_samp_rate.png" class="image"><img alt="Fm samp rate.png" src="/images/1/11/Fm_samp_rate.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_samp_rate.png"></p>
 </p>
-<h3><span class="mw-headline" id="Configure_the_receiver">Configure the receiver</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FM_receiver&amp;action=edit&amp;section=3" title="Edit section: Configure the receiver">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+
+<h3>Configure_the_receiver</h3>
 <p>Depending on which SDR you have will depend on which options you set here. All of the main receivers can be controlled using the "osmocom Source". The "Device Arguments" settings for different SDRs can be found <a rel="nofollow" class="external text" href="http://sdr.osmocom.org/trac/wiki/GrOsmoSDR#Devicespecification">here</a>. However, if you are using an RTL-SDR, you can also just use the "RTL-SDR Source".
-</p><p><a href="/index.php/File:Fm_rtlsdr_source.png" class="image"><img alt="Fm rtlsdr source.png" src="/images/8/88/Fm_rtlsdr_source.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_rtlsdr_source.png"></p>
 </p><p><br />
 The sample rate will already be pre-populated with the "samp_rate" variable. Set "Ch0: Frequency" to be "freq" and then create a new variable called "freq" (you can copy and paste the other "Variable" block and then rename it) with a frequency in the Broadcast FM band e.g. Radio 4 in Cheltenham is 93.4MHz (93.4e6 in exponential notation)
-</p><p><a href="/index.php/File:Rm_freq.png" class="image"><img alt="Rm freq.png" src="/images/a/a4/Rm_freq.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_freq.png"></p>
+
 </p><p><br />
 Although you may need to increase the gains at a later stage if the signal is too weak, initially, use the following settings (for RTL-SDR):
 </p>
@@ -60,41 +67,51 @@ Although you may need to increase the gains at a later stage if the signal is to
 <ul><li> Ch0: BB Gain - 20dB</li></ul>
 <p>Leave everything else at the defaults.
 </p><p>Select a "WX GUI FFT Sink" and connect it to the output of the receiver by clicking on the receiver output and then clicking on the "WX GUI FFT Sink" input - an arrow will link them together (if you want to unlink two blocks, click on the link and drag - it will disappear).
-</p><p><a href="/index.php/File:Fm_fft_sink.png" class="image"><img alt="Fm fft sink.png" src="/images/2/28/Fm_fft_sink.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_fft_sink.png"></p>
+
 </p><p><b>Note: By default the inputs and outputs are blue on these blocks, this denotes the type (blue = complex data, orange = float etc.) If the colours do not match on the connecters you are trying to connect together you will get a type-mismatch error and the arrow will go red.</b>
 </p>
-<h3><span class="mw-headline" id="Filtering">Filtering</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FM_receiver&amp;action=edit&amp;section=4" title="Edit section: Filtering">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3>Filtering</h3>
 <p>We now want to focus in on the signal of interest and filter out any other signals present in the baseband. Add a "Low Pass Filter" block and connect it to the output of the "SDR Source"
 </p>
 <ul><li> Set "FIR Type" to be "Complex-&gt;Complex (Decimating)"</li></ul>
 <ul><li> Set "Decimation" to be 10 (we don't need to be processing quite so many samples per second so we reduce by a factor of 10)</li></ul>
 <ul><li> Set "Cutoff Freq" to 75e3 - this is the maximum frequency (of the modulated signal) that we want to display</li></ul>
 <ul><li> Set "Transition Width" to 25e3 - this is the bandwidth over which the filter will act i.e. the smaller the number the more aggressive the filter.</li></ul>
-<p><a href="/index.php/File:Fm_filter.png" class="image"><img alt="Fm filter.png" src="/images/f/fd/Fm_filter.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_filter.png"></p>
 </p>
-<h3><span class="mw-headline" id="Resampling">Resampling</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FM_receiver&amp;action=edit&amp;section=5" title="Edit section: Resampling">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3>Resampling</h3>
 <p>We now need to resample the signal by a non-integer factor (as we're aiming for the final sample rate at the speaker to be 48KHz).
 </p><p>Add a "Rational Resampler" block and configure the settings as follows:
 </p>
 <ul><li> "Interpolation": 480000 - this will be the output sample rate</li></ul>
 <ul><li> "Decimation": 200000 - this is the input sample rate</li></ul>
-<p><a href="/index.php/File:Fm_resampler.png" class="image"><img alt="Fm resampler.png" src="/images/e/e2/Fm_resampler.png" width="500" height="528" /></a>
+<p><img src="images/fm_resampler.png"></p>
+
 </p>
-<h3><span class="mw-headline" id="Demodulating">Demodulating</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FM_receiver&amp;action=edit&amp;section=6" title="Edit section: Demodulating">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3>Demodulating</h3>
 <p>The demodulation scheme used is Wideband Frequency Modulation (WBFM), so add a "WBFM Receive" block with the following settings:
 </p>
 <ul><li>"Quadrature Rate": 480e3 (the sample rate at the output of the resampler)</li></ul>
 <ul><li>"Audio Decimation": 10 (this reduces the sample rate further to 48KHz)</li></ul>
-<p><a href="/index.php/File:Fm_wbfm_receive.png" class="image"><img alt="Fm wbfm receive.png" src="/images/5/5c/Fm_wbfm_receive.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_wbfm_receive.png"></p>
+
 </p>
-<h3><span class="mw-headline" id="Amplify_the_audio_signal">Amplify the audio signal</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FM_receiver&amp;action=edit&amp;section=7" title="Edit section: Amplify the audio signal">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3>Amplify the audio signal</h3>
 <p>We should now have a demodulated audio signal, but it will need to be amplified. 
 </p><p>Add a "Multiply Const" block and set "Constant" initially to be "1" (this can be increased to increase the volume)
-</p><p><a href="/index.php/File:Fm_const_block2.png" class="image"><img alt="Fm const block2.png" src="/images/4/46/Fm_const_block2.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_const_block2.png"></p>
+
 </p>
-<h3><span class="mw-headline" id="Audio_output">Audio output</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=FM_receiver&amp;action=edit&amp;section=8" title="Edit section: Audio output">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h3>Audio output</h3>
 <p>In order to be able to listen to the audio we need an output. Add an "Audio Sink" block and set the "Sample Rate" to 48KHz 
-</p><p><a href="/index.php/File:Fm_audio_sink.png" class="image"><img alt="Fm audio sink.png" src="/images/0/05/Fm_audio_sink.png" width="500" height="528" /></a>
+
+<p><img src="images/fm_audio_sink.png"></p>
+
 </p><p><br />
 Your flow-graph should now be complete! (check it against the picture at the beginning of this tutorial).
 
