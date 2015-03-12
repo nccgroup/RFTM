@@ -1,43 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>RFTM by nccgroup</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="RFTM : ">
 
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>RFTM</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/nccgroup/RFTM">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/nccgroup/RFTM/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/nccgroup/RFTM/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/nccgroup/RFTM">View on GitHub</a>
 
-      <section>
-        <div id="title">
-          <h1>RFTM</h1>
-          <p></p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/nccgroup">nccgroup</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+          <h1 id="project_title">RFTM</h1>
+          <h2 id="project_tagline"></h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/nccgroup/RFTM/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/nccgroup/RFTM/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <p>The RFTM is an Open Source, collaborative testing methodology that can be applied to all Radio Frequency (wireless) technologies. </p>
 
 <p>Throughout this methodology, we'll use various real-world examples, including the <a href="http://www.io-homecontrol.com/en/">Io-homecontrol</a> protocol.</p>
@@ -155,7 +148,7 @@
 <h2>
 <a id="product-data-sheets" class="anchor" href="#product-data-sheets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Product data sheets</h2>
 
-<p>Data sheets can provide a wealth of useful information - below is an example of a datasheet for the transceiver chip within an io-homecontrol device: <img src="Iohome%20datasheet.png" alt="" title="fig:Iohome datasheet.png"></p>
+<p>Data sheets can provide a wealth of useful information - below is an example of a datasheet for the transceiver chip within an io-homecontrol device: <img src="images/Iohome%20datasheet.png" alt=""></p>
 
 <p>As can be seen in the example above, there are a number of very useful pieces of information:</p>
 
@@ -227,15 +220,15 @@
 
 <p>Omni-directional, limited to narrow frequency band - this is the type you are most likely to use with your SDR:</p>
 
-<p><img src="Omni%20antenna.png" alt="" title="Omni antenna.png"></p>
+<p><img src="images/Omni%20antenna.png" alt=""></p>
 
 <p>Omni-directional, wideband antenna - for covering a much larger range of frequencies when scanning a wide RF environment:</p>
 
-<p><img src="Wideband%20antenna.png" alt="" title="Wideband antenna.png"></p>
+<p><img src="images/Wideband%20antenna.png" alt=""></p>
 
 <p>Directional "Yagi" antenna - for focusing the beam in a very specific direction (used for terrestrial TV reception):</p>
 
-<p><img src="433%20yagi.png" alt="" title="433 yagi.png"></p>
+<p><img src="images/433%20yagi.png" alt=""></p>
 
 <p>TODO: Add some antenna theory here to explain how they work</p>
 
@@ -246,30 +239,30 @@
 
 <p>SMA - This is the most common connector you will encounter when using SDR (good for up to 18GHz)</p>
 
-<p><img src="Sma%20female.jpg" alt="" title="fig:Sma female.jpg"><img src="Sma%20male.jpg" alt="" title="fig:Sma male.jpg"></p>
+<p><img src="images/Sma%20female.jpg" alt=""><img src="images/Sma%20male.jpg" alt=""></p>
 
 <p>RP-SMA - These are often used on WiFi routers - do not confuse with SMA, as <strong>they are not compatible with SMA!</strong></p>
 
-<p><img src="Rp-sma%20female.jpg" alt="" title="fig:Rp-sma female.jpg"><img src="Rp-sma%20male.jpg" alt="" title="fig:Rp-sma male.jpg"></p>
+<p><img src="images/Rp-sma%20female.jpg" alt=""><img src="images/Rp-sma%20male.jpg" alt=""></p>
 
 <p>MCX - These are used on the RTL-SDR and some older WiFi PC cards</p>
 
-<p><img src="Mcx%20female2.jpg" alt="" title="fig:Mcx female2.jpg"><img src="Mcx%20male.jpg" alt="" title="fig:Mcx male.jpg"></p>
+<p><img src="images/Mcx%20female2.jpg" alt=""><img src="images/Mcx%20male.jpg" alt=""></p>
 
 <p>BNC - Often used for lower frequency antennas (only good for up to 4GHz)</p>
 
-<p><img src="Bnc-female.jpg" alt="" title="fig:Bnc-female.jpg"><img src="Bnc-male.jpg" alt="" title="fig:Bnc-male.jpg"></p>
+<p><img src="images/Bnc-female.jpg" alt=""><img src="images/Bnc-male.jpg" alt=""></p>
 
 <p>N-type - used for more industrial purposes e.g. radar, mobile base stations</p>
 
-<p><img src="N-type%20female.jpg" alt="" title="fig:N-type female.jpg"><img src="N-type%20male.jpg" alt="" title="fig:N-type male.jpg"></p>
+<p><img src="images/N-type%20female.jpg" alt=""><img src="images/N-type%20male.jpg" alt=""></p>
 
 <h2>
 <a id="hardware-amplifiers" class="anchor" href="#hardware-amplifiers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware: Amplifiers</h2>
 
 <p>Sometimes the signal you are trying to receive is very low level and therefore, an amplifier is required. Below is an example of a typical <a href="http://en.wikipedia.org/wiki/Low-noise_amplifier">Low Noise Amplifier</a> that has been successfully used with an SDR:</p>
 
-<p><img src="Low%20noise%20amp2.png" alt="" title="Low noise amp2.png"></p>
+<p><img src="images/Low%20noise%20amp2.png" alt=""></p>
 
 <p>TODO: Add more info about amplifiers and explain Signal to Noise ratio</p>
 
@@ -290,22 +283,22 @@
 
 <p><strong>Hint: When using GNU Radio Companion if you cannot find the block you are looking for in the right-hand pane, click on the magnifying glass in the menu bar and this will enable you to do a text search</strong></p>
 
-<p><img src="Grc%20top%20block.png" alt="" title="Grc top block.png"></p>
+<p><img src="images/top_block.png" alt=""></p>
 
 <p>The sample rate must be at least twice the maximum frequency (of the modulated data - not the carrier signal), but the higher the sample rate, the clearer the signal will be, which initially will help aid signal identification. The default is 32,000, but I would recommend at least 4,000,000 (4e6 is an easier way to write this, as you don't need to count the zeros!)</p>
 
-<p><img src="Grc%20samp%20rate.png" alt="" title="Grc samp rate.png"></p>
+<p><img src="images/Grc_samp_rate.png" alt=""></p>
 
 <h3>
 <a id="configure-the-receiver" class="anchor" href="#configure-the-receiver" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configure the receiver</h3>
 
 <p>Depending on which SDR you have will depend on which options you set here. All of the main receivers can be controlled using the "osmocom Source". The "Device Arguments" settings for different SDRs can be found <a href="http://sdr.osmocom.org/trac/wiki/GrOsmoSDR#Devicespecification">here</a>. However, if you are using an RTL-SDR, you can also just use the "RTL-SDR Source".</p>
 
-<p><img src="Grc%20osmocom%20source.png" alt="" title="Grc osmocom source.png"></p>
+<p><img src="images/Grc_osmocom_source.png" alt=""></p>
 
 <p>The sample rate will already be pre-populated with the "samp_rate" variable. Set "Ch0: Frequency" to be "centre_freq" and then create a new variable called "centre_freq" with a value near your target carrier frequency.</p>
 
-<p><img src="Grc%20centre%20freq.png" alt="" title="Grc centre freq.png"></p>
+<p><img src="images/Grc_centre_freq.png" alt=""></p>
 
 <p>Although you may need to increase the gains at a later stage if the signal is too weak, initially, use the following settings:</p>
 
@@ -333,11 +326,11 @@
 
 <p>In "WX GUI FFT Sink" set "Peak Hold" to "On", this will ensure that any signals that appear will stay displayed, even if they are transient:</p>
 
-<p><img src="Grc%20wx%20gui%20fft%20sink.png" alt="" title="Grc wx gui fft sink.png"></p>
+<p><img src="images/Grc_wx_gui_fft_sink.png" alt=""></p>
 
 <p>You are now ready to start the receiver - click on the gears icon in the menu bar and the flow-graph will start. The FFT sink displays 4MHz of bandwidth (your sample rate is 4 million and therefore the receiver is simultaneously sampling 4 million signals every second). The display is showing you everything that is being received in the frequency domain, so every peak is a different signal. If you were to tune through the FM broadcast band (87.5 – 108.0 MHz) each peak would be a different radio broadcast signal. FFT is <a href="http://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier Transform</a> - feel free to read all about it if you enjoy your maths! But understanding how it works is not required. Below is the output I saw when I started my receiver using the centre frequency 867.3MHz, which is in the <a href="http://en.wikipedia.org/wiki/ISM_band">ISM band</a> that's generally used for devices that form the Internet of Things:</p>
 
-<p><img src="Grc%20received%20baseband.png" alt="" title="Grc received baseband.png"></p>
+<p><img src="images/Grc_received_baseband.png%22" alt=""></p>
 
 <p>I have no idea what this signal is, but thought it would be a great opportunity to test out my methodology against, so the remainder of this receiver development example is based on this signal. Looking at the frequency, it is around 1Mhz higher than my centre frequency, so about 868.3MHz.</p>
 
@@ -358,7 +351,7 @@
 
 <p>Start up Baudline:</p>
 
-<p><img src="Baudline%20default.png" alt="" title="Baudline default.png"></p>
+<p><img src="images/Baudline_default.png" alt=""></p>
 
 <p>Right-click to open the main menu -&gt; input -&gt; open file. Make sure you select your "partx" file rather than "4M_received_baseband".</p>
 
@@ -386,13 +379,13 @@
 <li>  Decode Format: 32 bit float</li>
 </ul>
 
-<p><img src="Baudline%20load%20file.png" alt="" title="Baudline load file.png"></p>
+<p><img src="images/Baudline_load_file.png" alt=""></p>
 
 <p>Then click "Open"</p>
 
 <p>The file will be displayed graphically with time vertically and frequencies displayed horizontally.</p>
 
-<p><img src="Baudline%20signal.png" alt="" title="Baudline signal.png"></p>
+<p><img src="images/Baudline_signal.png%22" alt=""></p>
 
 <p>You may need to play with the colours to make the signal clearer (main menu -&gt; input -&gt; colour aperture)</p>
 
@@ -403,7 +396,7 @@
 
 <p>If you zoom in it looks like this:</p>
 
-<p><img src="Baudline%20signal%20zoomed.png" alt="" title="Baudline signal zoomed.png"></p>
+<p><img src="images/Baudline_signal_zoomed.png" alt=""></p>
 
 <p>As the line is moving from left to right and the horizontal axis is frequency, this looks very much like Frequency Shift Keying. Also, when data is sent over RF it always starts with something called a "preamble", which is used to help denote the start of some data and also synchronise the receiver with the data. Preambles are normally 101010101010...</p>
 
@@ -414,15 +407,15 @@
 
 <p>Add a "Signal Source" block with the Frequency set to "-950e3" (I said the signal looked like it was about 1MHz higher than the centre - it was actually 950KHz)</p>
 
-<p><img src="Grc%20signal%20source.png" alt="" title="Grc signal source.png"></p>
+<p><img src="images/Grc_signal_source.png%22" alt=""></p>
 
 <p>Add a "Multiply" block and connect the "Throttle" output and "Signal Source" output to the two "Multiply" inputs. Add the "Multiply" output to the "WX GUI FFT Sink" and your flow-graph should look like this:</p>
 
-<p><img src="Grc%20multiply.png" alt="" title="Grc multiply.png"></p>
+<p><img src="images/Grc_multiply.png%22" alt=""></p>
 
 <p>Start the flow-graph and the signal will now be centred:</p>
 
-<p><img src="Grc%20fft%20centred.png" alt="" title="Grc fft centred.png"></p>
+<p><img src="images/Grc_fft_centred.png%22" alt=""></p>
 
 <h3>
 <a id="filtering" class="anchor" href="#filtering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtering</h3>
@@ -441,7 +434,7 @@
 
 <p>Restart the flow-graph and you should see something like this:</p>
 
-<p><img src="Grc%20filtered%20signal.png" alt="" title="Grc filtered signal.png"></p>
+<p><img src="images/Grc_filtered_signal.png%22" alt=""></p>
 
 <h3>
 <a id="demodulating" class="anchor" href="#demodulating" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demodulating</h3>
@@ -460,7 +453,7 @@
 
 <p>Your flow-graph should now look like this:</p>
 
-<p><img src="Grc%20demod%20save.png" alt="" title="Grc demod save.png"></p>
+<p><img src="images/Grc_demod_save.png" alt=""></p>
 
 <p>Run the flow-graph and it will produce a file that hopefully will contain demodulated data.</p>
 
@@ -473,19 +466,19 @@
 
 <p>Start Baudline and load your demod file - use all the same parameters as before, but this time change "Channels" to 1 (it is no longer a complex baseband signal - it is a demodulated signal). Click "Open" and it should look something like this:</p>
 
-<p><img src="Baudline%20demod1.png" alt="" title="Baudline demod1.png"></p>
+<p><img src="images/Baudline_demod1.png" alt=""></p>
 
 <p>Ensure that the separate "Waveform" window is open (main menu -&gt; displays -&gt; waveform)</p>
 
 <p>The output in the "Waveform" window can be zoomed in or out vertically and horizontally using Alt + cursor keys. To move the signal up and down just use the cursor keys. The output should initially look something like this:</p>
 
-<p><img src="Baudline%20waveform1.png" alt="" title="Baudline waveform1.png"></p>
+<p><img src="images/Baudline_waveform1.png" alt=""></p>
 
 <p>Although it seems quite clear in the main Baudline window, you'll need to search for your demodulated signal :-)</p>
 
 <p>By scrolling out horizontally, you should see lots of noise and then a section of no noise - this is your signal:</p>
 
-<p><img src="Baudline%20waveform2.png" alt="" title="Baudline waveform2.png"></p>
+<p><img src="images/Baudline_waveform2.png%22" alt=""></p>
 
 <p>Unfortunately, when you try and zoom in, the data is almost unrecognizable, because of the level of noise affecting it. If this is the case it means that you need to reduce the "Cutoff Freq" and "Transition Width" of your "Low Pass Filter". After some experimentation, some reasonable values were chosen:</p>
 
@@ -501,7 +494,7 @@
 
 <p>Now when the signal was loaded in Baudline it looked like this:</p>
 
-<p><img src="Baudline%20demod%20cleaner.png" alt="" title="Baudline demod cleaner.png"></p>
+<p><img src="images/Baudline_demod_cleaner.png" alt=""></p>
 
 <p>These are the data bits represented by the original "squiggly line" we saw in Baudline when we looked at the complex baseband signal. It also confirms that the data was modulated using 2-FSK.</p>
 
@@ -510,11 +503,11 @@
 
 <p>As we can see from the signal, it still looks very noisy, so we need to do some further, more accurate filtering and in order to do this we need to estimate the Baud rate (the number of symbols per second), but first we need to discuss how the data is represented. It looks like the peak represents a "1" and a trough for a "0", however it's not quite as simple as that; it is in fact encoded using something called "Manchester encoding". Manchester encoding is what is known as a <a href="http://en.wikipedia.org/wiki/Line_code">"line code"</a> and ensures frequent voltage transitions, directly proportional to the clock rate, which helps clock recovery. What this actually means is that a "0" is represented by a transition to low and a "1" is represented by a transition to high.</p>
 
-<p><img src="Manchester%20encoding.png" alt="" title="Manchester encoding.png"></p>
+<p><img src="images/Manchester_encoding.png" alt=""></p>
 
 <p>If we look at the signal with respect to the scale, we can see that by choosing a peak, its just short of 2.5 bits (transition down, transition up, start of transition down) per millisecond, which if you know your standard Baud rates (they don't always conform to standard Baud rates!), it looks like 2400Baud (simple FSK data rates are usually very slow, as data packets are typically quite small)</p>
 
-<p><img src="Baudline%20demod%20cleaner%20rate.png" alt="" title="Baudline demod cleaner rate.png"></p>
+<p><img src="images/Baudline_demod_cleaner_rate.png" alt=""></p>
 
 <p>Ok, now we think we have the Baud rate, we can accurately add a new "Low Pass Filter" in between the "Quadrature Demod" and the "File Sink". The settings should be as follows:</p>
 
@@ -538,13 +531,13 @@
 
 <p><strong>Note: When you load the file back into Baudline don't forget that the sample rate has been decimated by 100 and is now, therefore, 40,000 instead of 4,000,000</strong></p>
 
-<p><img src="Baudline%20demod%20really%20clean.png" alt="" title="Baudline demod really clean.png"></p>
+<p><img src="images/Baudline_demod_really_clean.png" alt=""></p>
 
 <p>We're not quite ready to recover the bits yet though, as the signal should be alternating about 0dBm (the centre line in the waveform view. It's actually up towards +90dBm, so it needs to be reduced.</p>
 
 <p>Add a "Add Const" block in between the second "Low Pass Filter" and the "File Sink" and set the "Constant" value to be -0.055 (this value was determined through trial-and-error), to reduce the signal level down. The output should now look like this:</p>
 
-<p><img src="Baudline%20final%20signal.png" alt="" title="Baudline final signal.png"></p>
+<p><img src="images/Baudline_final_signal.png" alt=""></p>
 
 <h3>
 <a id="data-recovery" class="anchor" href="#data-recovery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data recovery</h3>
@@ -583,11 +576,11 @@
 
 <p>Your final flow-graph should look something like this:</p>
 
-<p><img src="Fsk%20full%20flowgraph.png" alt="" title="Fsk full flowgraph.png"></p>
+<p><img src="images/Fsk_full_flowgraph.png" alt=""></p>
 
 <p>Open up the "bitfile" file in a hex editor. Remember the preamble of "0101010101..."? If you count them, there are four bytes worth (32bits) so you need to search for the preamble in the "bitfile", but if you look carefully, you can see that each byte in the file represents one bit i.e a "0" bit is represented by the byte "00" and a "1" bit is represented by the byte "01", so to search for the preamble you need to search for: "0001000100010001000100010001000100010001000100010001000100010001". The result of the search is shown below, the rest of the data follows the preamble:</p>
 
-<p><img src="Hex%20editor%20bits.png" alt="" title="Hex editor bits.png"></p>
+<p><img src="images/Hex_editor_bits.png%22" alt=""></p>
 
 <p>You have now successfully retrieved the data from an RF transmission!</p>
 
@@ -956,9 +949,17 @@
 <h2>
 <a id="simple-fm-radio-receiver" class="anchor" href="#simple-fm-radio-receiver" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple FM radio receiver</h2>
       </section>
-
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">RFTM maintained by <a href="https://github.com/nccgroup">nccgroup</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
