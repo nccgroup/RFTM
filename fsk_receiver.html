@@ -86,7 +86,7 @@
 
 <p><img src="images/grc_wx_gui_fft_sink.png" alt=""></p>
 
-<p>You are now ready to start the receiver - click on the gears icon in the menu bar and the flow-graph will start. The FFT sink displays 4MHz of bandwidth (your sample rate is 4 million and therefore the receiver is simultaneously sampling 4 million signals every second). The display is showing you everything that is being received in the frequency domain, so every peak is a different signal. If you were to tune through the FM broadcast band (87.5 – 108.0 MHz) each peak would be a different radio broadcast signal. FFT is <a href="http://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier Transform</a> - feel free to read all about it if you enjoy your maths! But understanding how it works is not required. Below is the output I saw when I started my receiver using the centre frequency 867.3MHz, which is in the <a href="http://en.wikipedia.org/wiki/ISM_band">ISM band</a> that's generally used for devices that form the Internet of Things:</p>
+<p>You are now ready to start the receiver - click on the gears icon in the menu bar and the flow-graph will start. The FFT sink displays 4MHz of bandwidth (your sample rate is 4 million and therefore the receiver is simultaneously sampling 4 million signals every second). The display is showing you everything that is being received in the frequency domain, so every peak is a different signal. If you were to tune through the FM broadcast band (87.5MHz to 108MHz) each peak would be a different radio broadcast signal. FFT is <a href="http://en.wikipedia.org/wiki/Fast_Fourier_transform">Fast Fourier Transform</a> - feel free to read all about it if you enjoy your maths! But understanding how it works is not required. Below is the output I saw when I started my receiver using the centre frequency 867.3MHz, which is in the <a href="http://en.wikipedia.org/wiki/ISM_band">ISM band</a> that's generally used for devices that form the Internet of Things:</p>
 
 <p><img src="images/grc_received_baseband.png" alt=""></p>
 
@@ -324,7 +324,7 @@
 <li>  "Omega Relative Limit": 0.01</li>
 </ul>
 
-<p>If you're interested in what these values mean then read [<a href="http://ieeexplore.ieee.org/xpl/login.jsp?tp">http://ieeexplore.ieee.org/xpl/login.jsp?tp</a>=&amp;arnumber=1093326&amp;url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F26%2F23866%2F01093326.pdf%3Farnumber%3D1093326 Timing Recovery in Digital Synchronous Data Receivers] by Mueller and Muller.</p>
+<p>If you're interested in what these values mean then read "Timing Recovery in Digital Synchronous Data Receivers" by Mueller and Muller.</p>
 
 <p>The final value we need is "Omega" - this is the number of samples per symbol. We previously calculated this to be 1666 and so decimated the signal by a factor of 100 so "Omega" now needs to be set to 16.66 (1666 / 100).</p>
 
