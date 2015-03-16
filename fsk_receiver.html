@@ -103,7 +103,7 @@
 
 <p>Now we have a recording we can visualize the signal a bit better using a tool called <a href="http://www.baudline.com/">Baudline</a>, which is an excellent tool for RF visualization that can be very helpful for signals identification. Unfortunately a bug in Baudline means that it does not like file sizes greater than 50Mb. So, before you can load it into Baudline you'll need to split your file into 50Mb chunks:</p>
 
-<p>&lt;pre&gt; split -b50m 4M_received_baseband part &lt;/pre&gt;</p>
+<p>$ split -b50m 4M_received_baseband part</p>
 
 <p>This should result in a series of files called "parta, partb, partc etc."</p>
 
